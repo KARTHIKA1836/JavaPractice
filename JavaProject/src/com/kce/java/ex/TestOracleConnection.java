@@ -51,7 +51,6 @@ public class TestOracleConnection {
             // Close connection
             rs.close();
             ps.close();
-            
             con.close();
             
             
