@@ -9,15 +9,12 @@ import java.sql.SQLException;
 public class TestOracleConnection {
     public static void main(String[] args) {
 
-        String url = "jdbc:oracle:thin:@localhost:1521:xe";  // change if needed
-        String username = "system";       // your Oracle username
-        String password = "karthika"; // your Oracle password
+        String url = "jdbc:oracle:thin:@localhost:1521:xe"; 
+        String username = "system";      
+        String password = "karthika";
 
         try {
-            // Load JDBC Driver
             Class.forName("oracle.jdbc.driver.OracleDriver");
-
-            // Connect
             Connection con = DriverManager.getConnection(url, username, password);
 
             if (con != null) {
@@ -38,7 +35,7 @@ public class TestOracleConnection {
                 String name = rs.getString("NAME");
                 String contact = rs.getString("CONTACT_INFO");
                 String address = rs.getString("ADDRESS");
-                String statement = rs.getString("STATEMENT");  // reading CLOB as String
+                String statement = rs.getString("STATEMENT");  
 
                 System.out.println("Victim ID: " + victimId +
                                    ", Case ID: " + caseId +
@@ -47,8 +44,6 @@ public class TestOracleConnection {
                                    ", Address: " + address +
                                    ", Statement: " + statement);
             }
-
-            // Close connection
             rs.close();
             ps.close();
             con.close();
